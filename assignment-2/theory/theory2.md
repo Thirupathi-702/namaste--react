@@ -120,6 +120,7 @@ A: node_modules folder like a cache for the external modules that your project d
 
 Q: What is the dist folder?
 A: The /dist folder contains the minimized version of the source code. The code present in the /dist folder is actually the code which is used on production web applications. Along with the minified code, the /dist folder also comprises of all the compiled modules that may or may not be used with other systems.
+--------
 
 Q: What is browserslist?
 A: Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them.
