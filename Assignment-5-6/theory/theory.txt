@@ -1,0 +1,167 @@
+Is JSX mandatory for React?
+No, JSX (JavaScript XML) is not mandatory for building React applications, but it is highly recommended. JSX is a syntax extension for JavaScript that looks similar to XML or HTML and allows you to write React components in a more concise and expressive way. JSX makes the code more readable and helps in visualizing the component structure.
+-------------
+Is ES6 mandatory for React?
+ES6 (ECMAScript 2015) is not mandatory for writing React applications, but it is highly recommended and widely used. Many of the features introduced in ES6 and later versions provide improvements to JavaScript syntax and make code more concise, readable, and maintainable. React itself doesn't require ES6, but using it enhances the development experience.
+-------------
+How can I write comments in JSX?
+In JSX, you can write comments using curly braces and the /* ... */ syntax for multi-line comments or the // syntax for single-line comments. Here's a short example:{/* This is a single-line comment in JSX */}
+--------------------
+What is <React.Fragment></React.Fragment> and <></> ?
+In React, <React.Fragment> and <> (or <></>) are used to create fragments. Fragments are a way to group multiple children elements without introducing an additional parent DOM element. This is especially useful when you want to return multiple elements from a component without wrapping them in a unnecessary container.With React 16.2 and later, you can use the shorthand <> (or <></>) to achieve the same result. This syntax is often preferred for its conciseness.
+-------------------------
+What is Virtual DOM?
+The Virtual DOM (Document Object Model) is a concept used in React and other modern JavaScript libraries and frameworks to optimize the performance of UI updates. It is not a feature of the browser's DOM; rather, it's an abstraction of the DOM implemented in memory.
+
+Here's a simplified explanation of how the Virtual DOM works in React:
+
+Representation of UI in Memory:
+
+When you create a React component, React maintains a lightweight, in-memory representation of the actual DOM. This in-memory representation is known as the Virtual DOM.
+React Components Update State:
+
+When a React component's state changes, the component re-renders.
+Reconciliation and Virtual DOM Diffing:
+
+Before updating the actual DOM, React first compares the new Virtual DOM representation with the previous one, a process known as "reconciliation" or "diffing."
+React determines the difference (or "diff") between the new Virtual DOM and the previous one.
+Minimizing DOM Manipulations:
+
+React calculates the most efficient way to update the actual DOM based on the differences found during the diffing process.
+Instead of directly updating the entire DOM, React generates a minimal set of changes needed to bring the actual DOM in sync with the Virtual DOM.
+Batching and Updating the Real DOM:
+
+React batches these changes and updates the real DOM in a more optimized manner. This batched approach minimizes the number of direct manipulations to the DOM, which can be a costly operation in terms of performance.(representation of DOM)
+-----------
+What is Reconciliation in React?
+Reconciliation is the process by which React updates the real DOM to match the most recent changes in the Virtual DOM. It is a key mechanism that allows React to efficiently manage updates to the user interface and ensure that the actual DOM reflects the current state of the application.
+
+Here's a step-by-step overview of the reconciliation process in React:
+
+Component Renders:
+
+When a React component's state or props change, the component re-renders.
+Virtual DOM Update:
+
+The re-render generates a new Virtual DOM representation of the component and its children. This new Virtual DOM is a lightweight, in-memory copy of the actual DOM.
+Differential Algorithm (Diffing):
+
+React performs a process known as "diffing" to compare the new Virtual DOM with the previous one. The goal is to identify the differences (or changes) between the two representations.
+Update Strategy:
+
+React determines the most efficient way to update the actual DOM based on the differences found during the diffing process.
+It calculates a minimal set of changes needed to bring the actual DOM in sync with the Virtual DOM.
+Batched Updates:
+
+React batches these changes together to minimize the number of direct manipulations to the real DOM. Grouping updates allows React to optimize the update process.
+Reconciliation and Commit Phase:
+
+The calculated changes are applied to the real DOM in a process known as the "commit phase." This is where the actual DOM is updated based on the results of the reconciliation process.
+--------What is React Fiber?-----------
+React Fiber is an internal reimplementation of the core algorithm in React that was introduced to enhance the performance and capabilities of React. It is not a separate version of React but rather a set of internal changes to how React works under the hood. React Fiber was first announced by the React team at Facebook in 2016.
+The main goals of React Fiber include:
+Improved Performance:
+Better Support for Large Applications:
+Support for Async Rendering:
+Improved Developer Tools:
+-----------------
+Why we need keys in React? When do we need keys in React?
+In React, keys are used to uniquely identify and differentiate between items in a collection (such as an array of components) when rendering lists. Keys play a crucial role in the process of reconciliation, helping React efficiently update the user interface by determining which items have been added, removed, or changed in a list.
+
+Here are the main reasons why keys are important in React:
+
+Optimizing Reconciliation:
+----------------
+Can we use index as keys in React?
+Using the index as keys in React is generally discouraged, especially when the list of items can change over time. While it might be tempting to use array indexes as keys, there are situations where this approach can lead to unintended consequences and issues.
+
+Here are some reasons why using index as keys is discouraged:
+
+Stability:
+Dynamic Lists:
+Performance Implications:
+--------------
+What is props in React? Ways to
+In React, props (short for properties) are a way to pass data from a parent component to a child component. Props are essentially a mechanism for communication between components, allowing data to flow downwards in the component tree. Props are read-only, meaning that a child component cannot modify the props it receives.
+--------
+What is a Config Driven UI ?
+A Config-Driven UI, short for Configuration-Driven User Interface, refers to a design approach where the structure, behavior, and appearance of a user interface are primarily determined by configuration or settings rather than being hardcoded in the application's source code. In other words, the UI is driven by external configuration files or data rather than by writing code to define each aspect of the user interface.
+
+Key aspects of a Config-Driven UI include:
+
+Configuration Files or Data:
+
+The UI's structure, components, styles, and behavior are defined in external configuration files or data structures. These configurations can be in various formats such as JSON, YAML, XML, or any other suitable data representation.
+Flexibility and Customization:
+
+The configuration-driven approach allows for a high degree of flexibility and customization without requiring developers to modify the underlying code. This is particularly useful when different instances of an application need variations in UI design or functionality.
+Reduced Development Time:
+
+By abstracting UI details into configuration files, developers can focus on building and maintaining the core application logic. This can lead to faster development cycles, as UI changes can be made without extensive coding.
+Easier Maintenance:
+
+Maintenance and updates become more straightforward, as changes to the UI can be accomplished by updating configuration files without touching the application's source code. This separation between configuration and code makes it easier to manage and understand the UI structure.
+Centralized Control:
+
+Configuration-driven UIs often provide centralized control over the application's appearance and behavior. This is particularly advantageous in scenarios where consistent branding or user experience is essential across different instances or deployments of the application.
+Dynamic UIs:
+
+Config-driven UIs are well-suited for building dynamic and data-driven interfaces. The UI can adapt and respond to changes in configuration, allowing for a more interactive and user-centric experience.
+---------------
+What is the difference between Named Export, Default export and * as export?
+In summary:
+
+Named Export: Used for exporting multiple values or functions by name.
+Default Export: Used for exporting a single "default" value, function, or class from a module.
+Export Everything with * as: Used for importing all named exports from a module as properties of a single object.
+It's common to use a combination of these export methods based on the requirements of your application. For instance, a module may have a default export for its primary functionality and named exports for additional utilities or components.
+----------------
+What is the importance of config.js file
+The importance of a config.js file often lies in its role as a central place to store configuration settings, parameters, or variables used throughout an application. Having a dedicated configuration file can provide several benefits:
+
+Maintainability:
+
+Centralizing configuration settings in one file makes it easier to manage and maintain. Developers can locate and update settings without needing to search through the entire codebase.
+Consistency:
+
+A config.js file promotes consistency in the application's configuration. When settings are scattered across different files, it's more prone to inconsistencies or accidentally using incorrect values.
+Reusability:
+
+Configuration settings that are reused in multiple parts of the application can be defined once in the config.js file and then imported wherever needed. This reduces redundancy and ensures that changes are applied consistently.
+Ease of Deployment:
+
+When deploying an application to different environments (development, staging, production), having a config.js file allows for easy adjustment of settings specific to each environment. This helps in managing database connections, API endpoints, and other environment-specific details.
+Security:
+
+Sensitive information, such as API keys or credentials, can be stored in the config.js file. This allows for easier handling of security-related concerns, such as ensuring that sensitive data is not hard-coded directly into the source code.
+Scalability:
+
+As an application grows, the number of configuration settings may increase. A config.js file provides a scalable solution, and its structure can be organized to accommodate a growing set of configuration parameters.
+Readability:
+
+By naming configuration variables appropriately and grouping them logically within the config.js file, the code becomes more readable. This is especially important for developers who may be new to the codebase or are trying to understand the overall structure of the application.
+Testing:
+
+During testing, having a separate configuration file allows for easy mocking or overriding of specific settings. This is particularly useful when running tests in different environments or with different configurations.
+-------------
+What are React Hooks?
+React Hooks are functions that allow developers to use state and other React features in functional components. Before the introduction of Hooks in React 16.8, state management and lifecycle methods were only available in class components. Hooks provide a more concise and expressive way to work with state, side effects, and other React features in functional components.
+
+The most commonly used React Hooks include:
+
+useState:
+
+Allows functional components to have local state. It returns an array with two elements: the current state value and a function to update the state.
+-----------
+Why do we need a useState Hook?
+The useState Hook in React is used to introduce state management to functional components. Before the introduction of Hooks in React 16.8, state management was exclusive to class components. The useState Hook allows functional components to have local state, enabling them to hold and update data over the course of their lifecycle.
+
+Here are the key reasons why the useState Hook is essential:
+
+Local State in Functional Components:
+
+Prior to Hooks, functional components were stateless and lacked the ability to manage local state. The useState Hook enables functional components to maintain their own state, making them more versatile and powerful.
+Declarative State Updates:
+
+The useState Hook promotes a declarative approach to updating state. Instead of directly mutating state, you provide a new state value, and React takes care of updating the state and re-rendering the component.
+----------
